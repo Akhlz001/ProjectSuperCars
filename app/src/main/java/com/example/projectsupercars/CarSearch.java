@@ -11,12 +11,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class CarSearch extends AppCompatActivity {
 
     EditText name, plate, mileage;
     Button insert, delete, view;
     DBHelper DB;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class CarSearch extends AppCompatActivity {
         delete = findViewById(R.id.deleteData);
         view = findViewById(R.id.viewData);
 
+
         DB = new DBHelper(this);
 
         insert.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +45,7 @@ public class CarSearch extends AppCompatActivity {
                 String numberplateTXT = plate.getText().toString();
                 String mileageTXT = mileage.getText().toString();
 
+
                 Boolean checkinsertdata = DB.insertvehicledata(vehiclenameTXT, numberplateTXT, mileageTXT);
                 if(checkinsertdata==true)
                 {
@@ -48,6 +54,20 @@ public class CarSearch extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(CarSearch.this, "Cannot add the same vehicle details twice!", Toast.LENGTH_SHORT).show();
+                }
+
+                try {
+
+                    String addr = "https://cartaxcheck.co.uk/free-car-check/?vrm=LN11VUM";
+                    URL url = new URL(addr);
+                    HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
+                    httpCon.setUseCaches(false);
+                    httpCon.setAllowUserInteraction(false);
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
             }

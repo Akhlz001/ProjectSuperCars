@@ -18,8 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
         DB.execSQL("create Table Userdetails(vehicleName TEXT primary key, numberPlate TEXT, mileage TEXT)");
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
+    @Override    public void onUpgrade(SQLiteDatabase DB, int i, int i1) {
         DB.execSQL("drop Table if exists Userdetails");
     }
 
