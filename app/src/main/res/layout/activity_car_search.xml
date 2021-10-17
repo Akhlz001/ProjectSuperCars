@@ -69,7 +69,13 @@
         android:layout_marginTop="30dp"
         android:layout_below="@id/deleteData"/>
 
-
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="395dp"
+        android:layout_height="176dp"
+        android:layout_below="@id/deleteData"
+        android:layout_marginTop="116dp"
+        android:textSize="24dp" />
 
 
 </RelativeLayout>
