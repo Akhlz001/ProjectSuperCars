@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -144,6 +145,26 @@ public class CarSearch extends AppCompatActivity {
 
             }
         });
+    }
+}
+
+class HTMLScraper extends AsyncTask<Void,Void,Void>
+{
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Void unused) {
+        super.onPostExecute(unused);
     }
 }
 
