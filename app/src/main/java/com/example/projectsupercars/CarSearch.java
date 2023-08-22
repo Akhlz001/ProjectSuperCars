@@ -126,7 +126,7 @@ public class CarSearch extends AppCompatActivity {
                 Cursor res = DB.getvehicledata();
                 if(res.getCount()==0)
                 {
-                    Toast.makeText(CarSearch.this, "Vehicle does not exist in the database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CarSearch.this, "Vehicle does not exist in the database, please input the correct vehicle data!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 StringBuffer buffer = new StringBuffer();
